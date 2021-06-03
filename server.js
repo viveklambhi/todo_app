@@ -3,6 +3,7 @@ require('dotenv').config()
 const app = express();
 const db = require('./config/dbConfig');
 const userRoutes = require('./src/routes/user');
+const taskRoutes = require('./src/routes/task');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
@@ -12,7 +13,7 @@ app.use((req,res, next)=>{
   console.log('middleware',req.body.userId);
   req.currentUser = req.body.userId;
   next();
-}, userRoutes);
+}, [userRoutes, taskRoutes]);
 
 const dbSync = async () => {
   try {

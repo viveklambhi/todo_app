@@ -1,9 +1,9 @@
 const app = require('express');
 
-const taskRoute = app.Router();
+const Route = app.Router();
 
-taskRoute.get('/task_list',(req,res)=>{
-  res.send('workin list')
+Route.get('/task_list',(req,res)=>{
+  res.send('working fine list')
 })
 
-module.exports = taskRoute;
+module.exports = Route;
